@@ -28,6 +28,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Cross-compile for Linux (arm64)
-        run: |
-          CC=aarch64-linux-gnu-gcc CGO_ENABLED=1 GOOS=linux GOARCH=arm64 go build -ldflags "-s -w -buildid=" -trimpath -buildvcs=false -o service .
+      - name: Generate build files
+        uses: thatisuday/go-cross-build@v1
+        with:
+            platforms: 'linux/arm64, linux/arm'
+            dest: 'dist'
