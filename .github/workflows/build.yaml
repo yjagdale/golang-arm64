@@ -31,4 +31,5 @@ jobs:
       - name: build go
         run: |
             go version
+            go  mod tidy && go mod download && go mod vendor
             CC=aarch64-linux-gnu-gcc CGO_ENABLED=1 go build -o rule-engine .
