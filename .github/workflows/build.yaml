@@ -31,5 +31,4 @@ jobs:
       - name: build go
         run: |
             go version
-            go build -o service .
             CC=aarch64-linux-gnu-gcc CGO_ENABLED=1 go build -o rule-engine .
