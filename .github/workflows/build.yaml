@@ -30,4 +30,4 @@ jobs:
 
       - name: Cross-compile for Linux (arm64)
         run: |
-          CGO_ENABLED=1 GOOS=linux GOARCH=arm64 CC=aarch64-linux-gnu-gcc go build -o service .
+          CC=aarch64-linux-gnu-gcc CGO_ENABLED=1 GOOS=linux GOARCH=arm64 go build -ldflags "-s -w -buildid=" -trimpath -buildvcs=false -o service .
