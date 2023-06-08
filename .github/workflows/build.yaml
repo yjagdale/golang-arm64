@@ -29,7 +29,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Generate build files
-        uses: thatisuday/go-cross-build@v1
+        uses: thatisuday/go-cross-build@master
         with:
             platforms: 'linux/arm64, linux/arm'
             dest: 'dist'
