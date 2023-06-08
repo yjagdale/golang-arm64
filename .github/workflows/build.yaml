@@ -28,8 +28,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Generate build files
-        uses: thatisuday/go-cross-build@master
+      - uses: wangyoucao577/go-release-action@v1
         with:
-            platforms: 'linux/arm64, linux/arm'
-            dest: 'dist'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          goos: linux
+          goarch: arm64
