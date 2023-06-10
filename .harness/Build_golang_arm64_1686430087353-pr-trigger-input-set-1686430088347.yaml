@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_golang_arm64_1686430087353-pr-trigger-input-set
+  identifier: Build_golang_arm64_1686430087353prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_golang_arm64_1686430087353
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
