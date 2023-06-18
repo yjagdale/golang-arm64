@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_golang_arm64_1687071661218-push-trigger-input-set
+  identifier: Build_golang_arm64_1687071661218pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: DB
+  pipeline:
+    identifier: Build_golang_arm64_1687071661218
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
