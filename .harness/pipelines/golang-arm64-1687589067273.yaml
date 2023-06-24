@@ -25,21 +25,15 @@ pipeline:
                   timeout: ""
                   type: Run
               - step:
-                  identifier: gotest
-                  name: go_test
-                  spec:
-                    command: go test -v ./...
-                  timeout: ""
-                  type: Run
-              - step:
                   identifier: dockerbuild
                   name: docker_build
                   spec:
                     image: plugins/docker
                     settings:
                       dry_run: "true"
-                      repo: hello/world
+                      repo: yjagdale/golang-arm64
                       tags: latest
+                    connectorRef: account.harnessImage
                   timeout: ""
                   type: Plugin
           platform:
@@ -49,3 +43,16 @@ pipeline:
             spec: {}
             type: Cloud
         type: CI
+  notificationRules:
+    - name: teams
+      identifier: teams
+      pipelineEvents:
+        - type: PipelineFailed
+      notificationMethod:
+        type: MsTeams
+        spec:
+          userGroups:
+            - account._account_all_users
+          msTeamKeys:
+            - https://databahn954.webhook.office.com/webhookb2/87f49ad4-d50e-4984-baba-5a5c29241e60@07af3855-b64b-4be9-a62e-4c66201ab1e1/IncomingWebhook/396efa23823542e89f1579b18d26aefe/e4ab525d-5e4a-4955-9033-ac19da60ca33
+      enabled: true
