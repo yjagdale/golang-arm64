@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_golang_arm64_1687589085010-pr-trigger-input-set
+  identifier: Build_golang_arm64_1687589085010prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: DataBahn
+  pipeline:
+    identifier: Build_golang_arm64_1687589085010
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
